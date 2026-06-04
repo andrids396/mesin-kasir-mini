@@ -16,30 +16,44 @@ const tombolTambahMenuBaru = document.querySelector("#btn-tambah-menu-baru");
 // 1. Varibel Dibutuhkan
 let keranjang = []; // menyimpan menu pesanan
 let total = 0; // inisiasi awal total belanja
+let admin = false;
 
-// 2. Menu
-const daftarMenu = [
-    {nama: "Kopi Susu", harga: 10000},
-    {nama: "Kopi Hitam", harga: 15000},
-    {nama: "Teh Manis", harga: 5000},
-    {nama: "Indomie Goreng", harga: 20000},
-    {nama: "Indomie Kuah", harga: 20000}
-];
+let dataDaftarMenu = localStorage.getItem("fileDaftarMenu");
+let daftarMenu = dataDaftarMenu ? JSON.parse(dataDaftarMenu): [];
 
 // 2. Membuat Tombol Pesan Menu dan Listenernya
-renderDaftarMenu();
 function renderDaftarMenu() {
     wadahDaftarMenu.innerHTML = "";
     daftarMenu.forEach(elemen => {
+        // 
+
         // 1. membuat tombol pesanan
         const tombolPesan = document.createElement("button");
         tombolPesan.classList.add("tombol-pesan");
-        tombolPesan.innerHTML = `${elemen.nama} <br> Rp ${elemen.harga.toLocaleString("id-ID")}`;
-    
+        if (admin){ // jika mode adminlakukan
+            tombolPesan.style.cursor = "auto"; // ubah jenis kursor saat melewati tombol pesan
+            tombolPesan.style.setProperty("--warna-hover-tombol-pesan", "#e0e0e0"); // warna hover disamakan saat tdk hover
+        }
+
+        let idenTitasMenu = document.createElement("div");
+        idenTitasMenu.classList.add("identitas-menu")
+        idenTitasMenu.innerHTML = `${elemen.nama} <br> Rp ${elemen.harga.toLocaleString("id-ID")}`;
+
+        // membuat tombolhapus daftar menu
+        const tombolHapus = document.createElement("button");
+        tombolHapus.classList.add("btn-hapus-menu");
+        tombolHapus.innerHTML = "X";
+        tombolHapus.style.display = admin ? "flex": "none"; // jika admin true munculkan tombol hapus, jika tidak hilangkan tombol hapus
+
+        tombolPesan.appendChild(tombolHapus);
+        tombolPesan.appendChild(idenTitasMenu);
         wadahDaftarMenu.appendChild(tombolPesan); // menempelkan btn menu ke div wadah menu
     
         // 2. listener tombol pesanan
         tombolPesan.addEventListener("click", () => {
+            if (admin){ // saat mode admin jangan lakukan pengisian keranjang belanja
+                return
+            }
             // cek sudah ada menu dipesan untuk menambah banyaknya
             const sudahDipesan = keranjang.find(item => item.nama === elemen.nama);
             if (sudahDipesan) {
@@ -54,6 +68,13 @@ function renderDaftarMenu() {
             // update layar
             randerLayar();
         });
+
+        // listener tombol hapus menu
+        tombolHapus.addEventListener("click", () => {
+            daftarMenu = daftarMenu.filter(item => item !== elemen);
+            localStorage.setItem("fileDaftarMenu", JSON.stringify(daftarMenu));
+            renderDaftarMenu();
+        })
     })
 }
 
@@ -70,34 +91,23 @@ inputUang.addEventListener("input", () => {
         inputUang.value = "";
     }
 });
-// inputUang.addEventListener("input", function() {
-//     // 1. Ambil value input dan bersihkan dari karakter selain angka (regex)
-//     // Ini penting agar titik sebelumnya hilang sebelum diproses ulang
-//     let cleanValue = this.value.replace(/[^0-9]/g, '');
-
-//     // 2. Cek apakah input tidak kosong
-//     if (cleanValue !== "") {
-//         // 3. Ubah string menjadi integer, lalu format ke standar Indonesia (titik sebagai pemisah ribuan)
-//         this.value = parseInt(cleanValue, 10).toLocaleString("id-ID");
-//     } else {
-//         // Jika input dihapus sampai habis, kembalikan value menjadi kosong
-//         this.value = "";
-//     }
-// });
 
 // 2. kembalian
 tombolKembalian.addEventListener("click", () => {
+    let banyakInputUang = Number(inputUang.value.replace(/[^0-9]/g, ''));
     if (total === 0){
         teksKembalian.innerHTML = "Keranjang masih kosong!!"
         teksKembalian.style.color = "orange";
         return
-    }
-    if (inputUang.value === ""){
-        teksKembalian.innerHTML = "Input uang tidak benar!!"
+    }else if(inputUang.value === ""){
+        teksKembalian.innerHTML = "Input uang kosong!!"
         teksKembalian.style.color = "red";
         return
+    }else if(banyakInputUang < total){
+        teksKembalian.innerHTML = "Uang Kurang!!"
+        teksKembalian.style.color = "#f700ea";
+        return
     }
-    let banyakInputUang = Number(inputUang.value.replace(/[^0-9]/g, ''));
     let kembalian = banyakInputUang - total;
     teksKembalian.innerHTML = `Kembalian = Rp ${kembalian.toLocaleString("id-ID")}`;
     teksKembalian.style.color = "black";
@@ -132,6 +142,9 @@ tombolTambahMenu.addEventListener("click", () => {
     }else{
         wadahNamaHargaTambahMenu.style.display = "none";
     }
+
+    admin = !admin; // saat tombol menu diklik mode admin diberlakukan, bila diklik lagi dimatikan
+    renderDaftarMenu();
 })
 
 // menambahkan menu baru ke daftar menu
@@ -145,8 +158,14 @@ tombolTambahMenuBaru.addEventListener("click", () => {
     daftarMenu.push({nama: namaMenu, harga: hargaMenu}); // menambahkan ke array daftar meny
     inputNamaMenuBaru.value = ""; // menghapus value input nama baru
     inputHargaMenuBaru.value = ""; // menghapus value input harga baru
-    wadahNamaHargaTambahMenu.style.display = "none"; //menghilangka form tambah menu baru
+    // wadahNamaHargaTambahMenu.style.display = "none"; //menghilangka form tambah menu baru
+
+    // menyimpan daftarMenu ke localstorage
+    let dataStringDaftarMenu = JSON.stringify(daftarMenu);
+    localStorage.setItem("fileDaftarMenu", dataStringDaftarMenu);
+
     renderDaftarMenu();
+
 })
 
 
@@ -229,3 +248,5 @@ function randerLayar(){
     // total belanja
     teksTotal.innerHTML = `Total Belanja = Rp ${total.toLocaleString("id-ID")}`;
 }
+
+renderDaftarMenu();

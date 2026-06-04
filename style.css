@@ -29,29 +29,35 @@ body{
     margin-top: 15px;
 }
 
-/* .tombol-pesan {
-    width: 150px;
-    height: 50px;
-    margin-left: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #e0e0e0;
-    cursor: pointer;
-} */
 .tombol-pesan {
     width: 100%; /* Mengisi penuh sekat grid yang tersedia */
-    height: 55px; /* Sedikit ditinggikan agar teks tidak terlalu sesak */
+    /* height: 55px; Sedikit ditinggikan agar teks tidak terlalu sesak */
     /* margin-left: 5px; ---> HAPUS BARIS INI */
     border: none;
     border-radius: 5px;
     background-color: #e0e0e0;
     cursor: pointer;
     font-size: 15px; /* Menyesuaikan ukuran font jika teksnya panjang */
+    display: block;
+    padding: 10px 0;
+    --warna-hover-tombol-pesan: #D7CCC8;
 }
 
 .tombol-pesan:hover {
-    background-color: #D7CCC8;
-}   
+    background-color: var(--warna-hover-tombol-pesan);
+}
+
+/* == hapus daftar menu */
+.identitas-menu {
+    /* border: 1px solid red; */
+    margin: auto;
+}
+
+.btn-hapus-menu {
+    /* border: 1px solid black; */
+    display: none;
+    margin: auto;
+}
 
 /* === Kertas Struk ====*/
 #kertas-struk {
@@ -197,7 +203,6 @@ body{
     background-color: #1b77c2;
 }
 
-.wadah-nama-harga-tambah-menu #input-harga-menu-baru {
-    text-align: right;
-    width: 130px;
+.btn-hapus-menu{
+    cursor: pointer;
 }
