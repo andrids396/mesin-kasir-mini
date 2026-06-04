@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesin Kasir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Warung Kopi Kita</h2>
+    <div class="layout-utama">
+        <div class="layout-kiri">
+            <div class="head-menu">
+                <div class="wadah-judul-tambah-menu">
+                    <h3 class="judul-daftar-menu">Daftar Menu</h3>
+                    <button id="btn-tambah-menu" class="tambah-menu">+</button>
+                </div>
+                <div class="wadah-nama-harga-tambah-menu">
+                    <input type="text" id="input-nama-menu-baru" placeholder="Nama menu baru">
+                    <input type="text" id="input-harga-menu-baru" placeholder="Harga menu baru">
+                    <button id="btn-tambah-menu-baru">Tambah</button>
+                </div>
+            </div>
+
+            <!-- menampilkan daftar menu -->
+            <div id="wadah-daftar-menu"></div> 
+
+        </div>
+
+        <div class="layout-kanan">
+            <h3>Kertas Struk</h3>
+            <div id="kertas-struk"></div>
+            <h3 id="teks-total">Total belanja = Rp 0</h3>
+
+            <h3>Area Pembayaran</h3>
+            <input type="text" id="input-uang" placeholder="Masukan jumlah uang" inputmode="numeric">
+            <button id="btn-kembalian">Kembalian</button>
+
+            <h3 id="teks-kembalian">Kembalian = Rp 0</h3>
+
+            <button id="reset">Pelanggan baru</button>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
