@@ -11,6 +11,7 @@ const wadahNamaHargaTambahMenu = document.querySelector(".wadah-nama-harga-tamba
 const inputNamaMenuBaru = document.querySelector("#input-nama-menu-baru");
 const inputHargaMenuBaru = document.querySelector("#input-harga-menu-baru");
 const tombolTambahMenuBaru = document.querySelector("#btn-tambah-menu-baru");
+const tombolSelaiMenambahMenu = document.querySelector("#btn-selesai-tambah-menu-baru");
 
 // === 2. Inisiasi ===
 // 1. Varibel Dibutuhkan
@@ -166,6 +167,13 @@ tombolTambahMenuBaru.addEventListener("click", () => {
 
     renderDaftarMenu();
 
+})
+
+// selesai menambahkan menu baru
+tombolSelaiMenambahMenu.addEventListener("click", () => {
+    wadahNamaHargaTambahMenu.style.display = "none";
+    admin = !admin
+    renderDaftarMenu();
 })
 
 

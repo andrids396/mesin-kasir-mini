@@ -197,6 +197,20 @@ body{
     color: white;
     padding: 0 10px;
     font-weight: bold;
+    border: none;
+}
+
+.wadah-nama-harga-tambah-menu #btn-selesai-tambah-menu-baru{
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ffb84d;
+    color: white;
+    font-weight: bold;
+}
+
+.wadah-nama-harga-tambah-menu #btn-selesai-tambah-menu-baru:hover {
+    background-color: #e69500;
 }
 
 .wadah-nama-harga-tambah-menu #btn-tambah-menu-baru:hover {
@@ -205,4 +219,17 @@ body{
 
 .btn-hapus-menu{
     cursor: pointer;
+    border: none;
+    background-color: #ff4d4d;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
+.btn-hapus-menu:hover{
+    background-color: #cc0000;
+}
+.btn-hapus-menu:active{
+    background-color: #aa3333;
 }
