@@ -186,6 +186,7 @@ body{
     /* border: 1px solid orange; */
     display: none;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 #input-nama-menu-baru, #input-harga-menu-baru, #btn-tambah-menu-baru{
@@ -202,6 +203,7 @@ body{
     padding: 0 10px;
     font-weight: bold;
     border: none;
+    height: 30px;
 }
 
 .wadah-nama-harga-tambah-menu #btn-selesai-tambah-menu-baru{
@@ -211,6 +213,7 @@ body{
     background-color: #ffb84d;
     color: white;
     font-weight: bold;
+    height: 30px;
 }
 
 .wadah-nama-harga-tambah-menu #btn-selesai-tambah-menu-baru:hover {
@@ -244,8 +247,15 @@ body{
     /* border: 1px solid black; */
     gap: 5px;
     align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
+.nama-toko {
+    /* border: 1px solid black; */
+    margin: 0px;
+}
 .wadah-nama-toko .wadah-ganti-nama {
     /* border: 1px solid black; */
     gap: 5px;
