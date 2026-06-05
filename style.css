@@ -102,6 +102,9 @@ body{
 
 
 /* === area pembayaran ===*/
+.area-pembayaran {
+    margin-bottom: 10px;
+}
 #input-uang {
     padding: 8px;
     border: 1px solid #ccc;
@@ -117,6 +120,7 @@ body{
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-top: 5px;
 }
 
 #reset {
@@ -232,4 +236,69 @@ body{
 }
 .btn-hapus-menu:active{
     background-color: #aa3333;
+}
+
+/* mengubah nama toko */
+.wadah-nama-toko {
+    display: flex;
+    /* border: 1px solid black; */
+    gap: 5px;
+    align-items: center;
+}
+
+.wadah-nama-toko .wadah-ganti-nama {
+    /* border: 1px solid black; */
+    gap: 5px;
+}
+
+.wadah-nama-toko .btn-opsi-nama-toko{
+    /* border: 1px solid red; */
+    border: none;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.wadah-nama-toko .btn-opsi-nama-toko:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+.wadah-nama-toko .btn-opsi-nama-toko:active {
+    background-color: #aaa;
+}
+
+.wadah-ganti-nama {
+    display: none;
+}
+
+.wadah-ganti-nama #input-nama-toko-baru {
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 25px;
+    padding: 3px 7px;
+}
+.wadah-ganti-nama #btn-ganti-nama {
+    border: none;
+    border-radius: 5px;
+    background-color: #2196f3;
+    color: white;
+    font-weight: bold;
+    padding: 3px 10px;
+}
+
+.wadah-ganti-nama #btn-ganti-nama:hover {
+    background-color: #1b77c2;
+    cursor: pointer;
+}
+
+.wadah-ganti-nama #btn-ganti-nama:active {
+    background-color: #0c5692;
+}
+
+@media (max-width: 768px) {
+    .layout-utama {
+        flex-direction: column;
+    }
 }
