@@ -12,6 +12,11 @@ const inputNamaMenuBaru = document.querySelector("#input-nama-menu-baru");
 const inputHargaMenuBaru = document.querySelector("#input-harga-menu-baru");
 const tombolTambahMenuBaru = document.querySelector("#btn-tambah-menu-baru");
 const tombolSelaiMenambahMenu = document.querySelector("#btn-selesai-tambah-menu-baru");
+const tombolOpsiNamaToko = document.querySelector(".btn-opsi-nama-toko");
+const wadahGantiNama = document.querySelector(".wadah-ganti-nama");
+const inputNamaTokoBaru = document.querySelector("#input-nama-toko-baru");
+const tombolGantiNama = document.querySelector("#btn-ganti-nama");
+const namaToko = document.querySelector(".nama-toko");
 
 // === 2. Inisiasi ===
 // 1. Varibel Dibutuhkan
@@ -174,6 +179,24 @@ tombolSelaiMenambahMenu.addEventListener("click", () => {
     wadahNamaHargaTambahMenu.style.display = "none";
     admin = !admin
     renderDaftarMenu();
+})
+
+// ganti nama toko
+tombolOpsiNamaToko.addEventListener("click", () => {
+    if (wadahGantiNama.style.display === "none" || wadahGantiNama.style.display === ""){
+        wadahGantiNama.style.display = "flex";
+    }else{
+        wadahGantiNama.style.display = "none";
+    }
+})
+
+tombolGantiNama.addEventListener("click", () => {
+    if (inputNamaTokoBaru.value === ""){
+        return;
+    }
+    namaToko.innerHTML = inputNamaTokoBaru.value;
+    wadahGantiNama.style.display = "none";
+    inputNamaTokoBaru.value = "";
 })
 
 
