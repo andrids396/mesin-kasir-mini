@@ -1,56 +1,318 @@
-.gridContainer{
-    padding-top: 0;
-    margin: 0;
-    height: 100vh;
+body{
+    background-color: #F5F5F5;
+}
+.layout-utama {
     display: flex;
-    flex-direction: column;
-
-    justify-content: space-evenly;
-    align-items: center;
+    gap: 20px;
 }
 
-.tabel{
+.layout-kiri {
+    flex: 2;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.layout-kanan {
+    flex: 1;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* layout kiri simetris */
+#wadah-daftar-menu {
     display: grid;
-    grid-template-columns: 100px 100px 100px;
-    grid-template-rows: 100px 100px 100px;
-    /* height: 100vh; */
-    justify-content: center;
-    align-content: center;
-    /* gap: 0;
-    margin: 0; */
+    /* Ini mantra kuncinya: Buat 5 kolom, masing-masing ukurannya 1 bagian rata (1fr) */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 15px; /* Jarak antar tombol atas-bawah dan kiri-kanan */
+    margin-top: 15px;
+    overflow: auto;
 }
 
-.kotak{
-    border: 3px solid black;
-    margin-top: -3px;
-    margin-left: -3px;
+.tombol-pesan {
+    width: 100%; /* Mengisi penuh sekat grid yang tersedia */
+    /* height: 55px; Sedikit ditinggikan agar teks tidak terlalu sesak */
+    /* margin-left: 5px; ---> HAPUS BARIS INI */
+    border: none;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    font-size: 15px; /* Menyesuaikan ukuran font jika teksnya panjang */
+    display: block;
+    padding: 10px 0;
+    --warna-hover-tombol-pesan: #D7CCC8;
+}
+
+.tombol-pesan:hover {
+    background-color: var(--warna-hover-tombol-pesan);
+}
+
+/* == hapus daftar menu */
+.identitas-menu {
+    /* border: 1px solid red; */
+    margin: auto;
+}
+
+.btn-hapus-menu {
+    /* border: 1px solid black; */
+    display: none;
+    margin: auto;
+}
+
+/* === Kertas Struk ====*/
+#kertas-struk {
+    border: 2px dashed #3e2723;
+    padding: 15px;
+    background-color: #fafafa; /*warna putih tulang ala struk*/
+    min-height: 100px;
+    border-radius: 10px;
+}
+
+.pesanan {
+    background-color: transparent;
+    border-bottom: 1px dashed #ccc; /*garis bawah*/
+    padding: 10px 0; /*pading atas-bawah*/
+    margin-bottom: 5px;
+}
+
+/* tombol hapus dan kurang */
+.btn-hapus {
+    margin-left: 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.btn-kurangi-satu {
+    margin-left: 5px;
+    background-color: #ffb84d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+/*efek hover*/
+.btn-hapus:hover {background-color: #cc0000;}
+.btn-kurangi-satu:hover {background-color: #e69500;}
+
+
+/* === area pembayaran ===*/
+.area-pembayaran {
+    margin-bottom: 10px;
+}
+#input-uang {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    font-size: 15px;
+}
+
+#btn-kembalian {
+    padding: 10px 15px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+#reset {
+    padding: 10px 20px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    /* margin-top: 10px; */
+    font-weight: bold;
+}
+/* hover */
+#btn-kembalian:hover{background-color: #38853b;}
+#reset:hover {background-color: #1b77c2;}
+
+/* tombol opsi */
+.btn-opsi {
+    margin-left: 5px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* hover btn opsi */
+.btn-opsi:hover {
+    background-color: #eee;
+}
+
+/* tambah menu */
+.head-menu {
+    /* border: 1px solid black; */
+    flex-wrap: wrap;
+}
+
+.wadah-judul-tambah-menu{
     display: flex;
+    /* border: 1px solid red; */
+    align-items: center;    
+    gap: 5px;
+}
+
+.wadah-judul-tambah-menu .tambah-menu{
+    display: flex;
+    width: 15px;
+    height: 15px;
     justify-content: center;
     align-items: center;
-    font-size: 60px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button{
-    /* margin: 0; */
-    padding: 10px 20px;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#giliranPion{
-    /* margin: 0; */
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
-    font-weight: bold;
-}
-
-.jenisPermainan{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
-    font-weight: bold;
     padding-top: 0;
-    margin-top: 0;
+    border: 1px solid #aaa;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.wadah-judul-tambah-menu .tambah-menu:hover{
+    background-color: #eee;
+}
+
+.wadah-nama-harga-tambah-menu{
+    /* border: 1px solid orange; */
+    display: none;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#input-nama-menu-baru, #input-harga-menu-baru, #btn-tambah-menu-baru{
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #aaa;
+}
+
+.wadah-nama-harga-tambah-menu #btn-tambah-menu-baru{
+    background-color: #2196f3;
+    cursor: pointer;
+    color: white;
+    padding: 0 10px;
+    font-weight: bold;
+    border: none;
+    height: 30px;
+}
+
+.wadah-nama-harga-tambah-menu #btn-selesai-tambah-menu-baru{
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ffb84d;
+    color: white;
+    font-weight: bold;
+    height: 30px;
+}
+
+.wadah-nama-harga-tambah-menu #btn-selesai-tambah-menu-baru:hover {
+    background-color: #e69500;
+}
+
+.wadah-nama-harga-tambah-menu #btn-tambah-menu-baru:hover {
+    background-color: #1b77c2;
+}
+
+.btn-hapus-menu{
+    cursor: pointer;
+    border: none;
+    background-color: #ff4d4d;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
+.btn-hapus-menu:hover{
+    background-color: #cc0000;
+}
+.btn-hapus-menu:active{
+    background-color: #aa3333;
+}
+
+/* mengubah nama toko */
+.wadah-nama-toko {
+    display: flex;
+    /* border: 1px solid black; */
+    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.nama-toko {
+    /* border: 1px solid black; */
+    margin: 0px;
+}
+.wadah-nama-toko .wadah-ganti-nama {
+    /* border: 1px solid black; */
+    gap: 5px;
+}
+
+.wadah-nama-toko .btn-opsi-nama-toko{
+    /* border: 1px solid red; */
+    border: none;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.wadah-nama-toko .btn-opsi-nama-toko:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+.wadah-nama-toko .btn-opsi-nama-toko:active {
+    background-color: #aaa;
+}
+
+.wadah-ganti-nama {
+    display: none;
+}
+
+.wadah-ganti-nama #input-nama-toko-baru {
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 25px;
+    padding: 3px 7px;
+}
+.wadah-ganti-nama #btn-ganti-nama {
+    border: none;
+    border-radius: 5px;
+    background-color: #2196f3;
+    color: white;
+    font-weight: bold;
+    padding: 3px 10px;
+}
+
+.wadah-ganti-nama #btn-ganti-nama:hover {
+    background-color: #1b77c2;
+    cursor: pointer;
+}
+
+.wadah-ganti-nama #btn-ganti-nama:active {
+    background-color: #0c5692;
+}
+
+@media (max-width: 768px) {
+    .layout-utama {
+        flex-direction: column;
+    }
+    .tombol-pesan {
+        width: 150px;
+    }
 }
