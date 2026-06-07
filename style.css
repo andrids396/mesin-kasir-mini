@@ -471,13 +471,29 @@ body, h2, h3, button, input {
         margin-bottom: 5px;
     }
 
+    .wadah-input-nama-harga{
+        /* border: 1px solid black; */
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    #input-nama-menu-baru{
+        margin-right: 0;
+
+    }
+    #input-harga-menu-baru{
+        margin-right: 0;
+    }
+
     #wadah-daftar-menu{
-        border: 1px solid red;
+        /* border: 1px solid red; */
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         gap: 5px;
-        height: 230px;
+        max-height: 230px;
     }
 
     .tombol-pesan{
