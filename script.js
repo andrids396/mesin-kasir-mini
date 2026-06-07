@@ -45,12 +45,19 @@ function renderDaftarMenu() {
         idenTitasMenu.classList.add("identitas-menu")
         idenTitasMenu.innerHTML = `${elemen.nama} <br> Rp ${elemen.harga.toLocaleString("id-ID")}`;
 
+        // opsi hapus menu
+        const opsiHapusMenu = document.createElement("button");
+        opsiHapusMenu.classList.add("opsi-hapus-menu");
+        opsiHapusMenu.innerHTML = "&#8942;"
+        opsiHapusMenu.style.display = admin ? "flex": "none";
+
         // membuat tombolhapus daftar menu
         const tombolHapus = document.createElement("button");
         tombolHapus.classList.add("btn-hapus-menu");
         tombolHapus.innerHTML = "X";
-        tombolHapus.style.display = admin ? "flex": "none"; // jika admin true munculkan tombol hapus, jika tidak hilangkan tombol hapus
+        tombolHapus.style.display = "none"; // jika admin true munculkan tombol hapus, jika tidak hilangkan tombol hapus
 
+        tombolPesan.appendChild(opsiHapusMenu);
         tombolPesan.appendChild(tombolHapus);
         tombolPesan.appendChild(idenTitasMenu);
         wadahDaftarMenu.appendChild(tombolPesan); // menempelkan btn menu ke div wadah menu
@@ -80,6 +87,12 @@ function renderDaftarMenu() {
             daftarMenu = daftarMenu.filter(item => item !== elemen);
             localStorage.setItem("fileDaftarMenu", JSON.stringify(daftarMenu));
             renderDaftarMenu();
+        })
+
+        // listener opsi hapus menu
+        opsiHapusMenu.addEventListener("click", () => {
+            tombolHapus.style.display = "flex";
+            opsiHapusMenu.style.display = "none";
         })
     })
 }
@@ -116,7 +129,7 @@ tombolKembalian.addEventListener("click", () => {
     }
     let kembalian = banyakInputUang - total;
     teksKembalian.innerHTML = `Kembalian = Rp ${kembalian.toLocaleString("id-ID")}`;
-    teksKembalian.style.color = "black";
+    teksKembalian.style.color = "#32bd25";
 })
 
 // 3. reset untuk pelanggan selanjutnya

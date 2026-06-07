@@ -1,318 +1,492 @@
-body{
-    background-color: #F5F5F5;
+/* menghilangkan margin dan pading bawaan*/
+body, h2, h3, button, input {
+    padding: 0;
+    margin: 0;
 }
-.layout-utama {
+
+.container {
+    /* border: 1px solid rgb(248, 0, 0); */
     display: flex;
-    gap: 20px;
+    flex-direction: column; /*wadah nama toko bawah layout utama*/
+    width: 100vw;
+    height: 100vh;
+    background-color: #eee;
+    box-sizing: border-box;
+    overflow-y: hidden;
 }
 
-.layout-kiri {
-    flex: 2;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.layout-kanan {
-    flex: 1;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-/* layout kiri simetris */
-#wadah-daftar-menu {
-    display: grid;
-    /* Ini mantra kuncinya: Buat 5 kolom, masing-masing ukurannya 1 bagian rata (1fr) */
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 15px; /* Jarak antar tombol atas-bawah dan kiri-kanan */
-    margin-top: 15px;
-    overflow: auto;
-}
-
-.tombol-pesan {
-    width: 100%; /* Mengisi penuh sekat grid yang tersedia */
-    /* height: 55px; Sedikit ditinggikan agar teks tidak terlalu sesak */
-    /* margin-left: 5px; ---> HAPUS BARIS INI */
-    border: none;
-    border-radius: 5px;
-    background-color: #e0e0e0;
-    cursor: pointer;
-    font-size: 15px; /* Menyesuaikan ukuran font jika teksnya panjang */
-    display: block;
-    padding: 10px 0;
-    --warna-hover-tombol-pesan: #D7CCC8;
-}
-
-.tombol-pesan:hover {
-    background-color: var(--warna-hover-tombol-pesan);
-}
-
-/* == hapus daftar menu */
-.identitas-menu {
+/* === bagian nama toko dan ganti nama toko === */
+/* nama toko */
+.wadah-nama-toko {
     /* border: 1px solid red; */
-    margin: auto;
+    display: flex;
+    gap: 5px;
+    padding-top: 20px;
+    padding-left: 20px;
+    align-items: center;
 }
 
-.btn-hapus-menu {
-    /* border: 1px solid black; */
-    display: none;
-    margin: auto;
-}
-
-/* === Kertas Struk ====*/
-#kertas-struk {
-    border: 2px dashed #3e2723;
-    padding: 15px;
-    background-color: #fafafa; /*warna putih tulang ala struk*/
-    min-height: 100px;
-    border-radius: 10px;
-}
-
-.pesanan {
-    background-color: transparent;
-    border-bottom: 1px dashed #ccc; /*garis bawah*/
-    padding: 10px 0; /*pading atas-bawah*/
-    margin-bottom: 5px;
-}
-
-/* tombol hapus dan kurang */
-.btn-hapus {
-    margin-left: 10px;
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 4px 8px;
-    cursor: pointer;
-}
-
-.btn-kurangi-satu {
-    margin-left: 5px;
-    background-color: #ffb84d;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 4px 8px;
-    cursor: pointer;
-}
-
-/*efek hover*/
-.btn-hapus:hover {background-color: #cc0000;}
-.btn-kurangi-satu:hover {background-color: #e69500;}
-
-
-/* === area pembayaran ===*/
-.area-pembayaran {
-    margin-bottom: 10px;
-}
-#input-uang {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 200px;
-    font-size: 15px;
-}
-
-#btn-kembalian {
-    padding: 10px 15px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 5px;
-}
-
-#reset {
-    padding: 10px 20px;
-    background-color: #2196f3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    /* margin-top: 10px; */
-    font-weight: bold;
-}
-/* hover */
-#btn-kembalian:hover{background-color: #38853b;}
-#reset:hover {background-color: #1b77c2;}
-
-/* tombol opsi */
-.btn-opsi {
-    margin-left: 5px;
-    background-color: transparent;
-    border-radius: 50%;
-    border: none;
+/* tombol opsi ganti nama toko */
+.btn-opsi-nama-toko {
     width: 20px;
     height: 20px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+}
+.btn-opsi-nama-toko:hover{
+    background-color: #ddd;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-opsi-nama-toko:active{
+    background-color: #ccc;
+}
+
+/* input nama baru dan tombol ganti nama*/
+.wadah-ganti-nama{
+    /* border: 1px solid black; */
+    height: 30px;
+    display: none;
+}
+
+#input-nama-toko-baru{
+    font-size: 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+#btn-ganti-nama{
+    font-size: 13px;
+    padding: 0 10px;
+    border: 0;
+    background-color: #0099ff;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+}
+#btn-ganti-nama:hover{
+    background-color: #0092d1;
     cursor: pointer;
 }
-
-/* hover btn opsi */
-.btn-opsi:hover {
-    background-color: #eee;
+#btn-ganti-nama:active{
+    background-color: #0068ad;
 }
 
-/* tambah menu */
-.head-menu {
+/* === Layout Utama ===*/
+
+.layout-utama {
     /* border: 1px solid black; */
-    flex-wrap: wrap;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    min-height: 0;
+}
+
+/* == Layar kiri == */
+.layout-kiri {
+    /* border: 1px solid black; */
+    padding: 20px;
+    border-radius: 10px;
+    height: 0px;
+    flex: 2;
+    background-color: #fff;
+    align-content: stretc;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* mewadaih daftar menu dan form tambah menu */
+.head-menu{
+    /* border: 1px solid black; */
+    margin-bottom: 20px;
 }
 
 .wadah-judul-tambah-menu{
-    display: flex;
     /* border: 1px solid red; */
-    align-items: center;    
+    display: flex;
+    align-items: center;
     gap: 5px;
+    margin-bottom: 10px;
 }
 
-.wadah-judul-tambah-menu .tambah-menu{
-    display: flex;
+#btn-tambah-menu{
     width: 15px;
     height: 15px;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 0;
-    border: 1px solid #aaa;
-    background-color: transparent;
-    cursor: pointer;
 }
-
-.wadah-judul-tambah-menu .tambah-menu:hover{
+#btn-tambah-menu:hover{
     background-color: #eee;
+    cursor: pointer;
+}
+#btn-tambah-menu:active{
+    background-color: #ccc;
 }
 
+/* form tambah menu */
 .wadah-nama-harga-tambah-menu{
-    /* border: 1px solid orange; */
     display: none;
-    gap: 10px;
-    flex-wrap: wrap;
 }
 
-#input-nama-menu-baru, #input-harga-menu-baru, #btn-tambah-menu-baru{
-    font-size: 15px;
+#input-nama-menu-baru{
+    border: 1px solid #ccc;
+    height: 30px;
+    padding-left: 10px;
+    margin-right: 10px;
     border-radius: 5px;
-    padding: 5px;
-    border: 1px solid #aaa;
+    font-size: 15px;
 }
 
-.wadah-nama-harga-tambah-menu #btn-tambah-menu-baru{
-    background-color: #2196f3;
-    cursor: pointer;
-    color: white;
+#input-harga-menu-baru{
+    border: 1px solid #ccc;
+    height: 30px;
+    padding-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#btn-tambah-menu-baru{
+    border: none;
+    height: 30px;
     padding: 0 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #0099ff;
+    color: #fff;
     font-weight: bold;
-    border: none;
-    height: 30px;
+}
+#btn-tambah-menu-baru:hover{
+    background-color: #0092d1;
+    cursor: pointer;
+}
+#btn-tambah-menu-baru:active{
+    background-color: #0068ad;
 }
 
-.wadah-nama-harga-tambah-menu #btn-selesai-tambah-menu-baru{
+#btn-selesai-tambah-menu-baru{
+    border: none;
+    height: 30px;
+    padding: 0 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #ffb84d;
+    color: #fff;
+    font-weight: bold;
+}
+#btn-selesai-tambah-menu-baru:hover{
+    background-color: #ffa620;
+    cursor: pointer;
+}
+#btn-selesai-tambah-menu-baru:active{
+    background-color: #eb8d00;
+}
+
+/* bagian tombol tambah pesan */
+#wadah-daftar-menu{
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    min-height: 0;
+    overflow-y: auto;
+    align-content: start;
+}
+
+.tombol-pesan{
+    background-color: #eee;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-    background-color: #ffb84d;
-    color: white;
-    font-weight: bold;
-    height: 30px;
-}
-
-.wadah-nama-harga-tambah-menu #btn-selesai-tambah-menu-baru:hover {
-    background-color: #e69500;
-}
-
-.wadah-nama-harga-tambah-menu #btn-tambah-menu-baru:hover {
-    background-color: #1b77c2;
-}
-
-.btn-hapus-menu{
-    cursor: pointer;
-    border: none;
-    background-color: #ff4d4d;
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-    border-radius: 3px;
-}
-
-.btn-hapus-menu:hover{
-    background-color: #cc0000;
-}
-.btn-hapus-menu:active{
-    background-color: #aa3333;
-}
-
-/* mengubah nama toko */
-.wadah-nama-toko {
-    display: flex;
-    /* border: 1px solid black; */
-    gap: 5px;
-    align-items: center;
-    flex-wrap: wrap;
     padding: 10px;
     box-sizing: border-box;
+    height: auto;
+    white-space: normal;
+    box-sizing: border-box;
+
+    /* tombol hapus melayang */
+    position: relative;
+}
+.tombol-pesan:hover{
+    background-color: #ddd;
+    cursor: pointer;
+}
+.tombol-pesan:active{
+    background-color: #ccc;
 }
 
-.nama-toko {
-    /* border: 1px solid black; */
-    margin: 0px;
-}
-.wadah-nama-toko .wadah-ganti-nama {
-    /* border: 1px solid black; */
-    gap: 5px;
-}
-
-.wadah-nama-toko .btn-opsi-nama-toko{
-    /* border: 1px solid red; */
-    border: none;
-    background-color: transparent;
+/* hapus daftar menu */
+.opsi-hapus-menu{
     width: 20px;
     height: 20px;
     border-radius: 50%;
-}
+    border: none;
+    background-color: transparent;
 
-.wadah-nama-toko .btn-opsi-nama-toko:hover {
+    /* center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* melayang */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 11;
+}
+.opsi-hapus-menu:hover{
     background-color: #ccc;
     cursor: pointer;
 }
-.wadah-nama-toko .btn-opsi-nama-toko:active {
+.opsi-hapus-menu:active{
     background-color: #aaa;
 }
 
-.wadah-ganti-nama {
-    display: none;
-}
-
-.wadah-ganti-nama #input-nama-toko-baru {
-    font-size: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    height: 25px;
-    padding: 3px 7px;
-}
-.wadah-ganti-nama #btn-ganti-nama {
+.btn-hapus-menu{
+    background-color: #ff0000;
+    color: #fff;
+    font-weight: bold;
+    padding: 1px;
+    width: 15px;
+    height: 15px;
     border: none;
     border-radius: 5px;
-    background-color: #2196f3;
-    color: white;
-    font-weight: bold;
-    padding: 3px 10px;
-}
 
-.wadah-ganti-nama #btn-ganti-nama:hover {
-    background-color: #1b77c2;
+    /* center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* melayang */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 10;
+}
+.btn-hapus-menu:hover{
+    background-color: #ee0606;
     cursor: pointer;
 }
-
-.wadah-ganti-nama #btn-ganti-nama:active {
-    background-color: #0c5692;
+.btn-hapus-menu:active{
+    background-color: #cf0b0b;
 }
 
+/* == Layar kanan == */
+.layout-kanan {
+    /* border: 1px solid black; */
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* == awal kertas struk === */
+#kertas-struk{
+    border: 2px dashed #111;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    
+    flex: 1;
+    overflow-y: auto;
+}
+
+.pesanan{
+    border-bottom: 1px dashed #ccc;
+    padding: 10px 0;
+    
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.btn-opsi{
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+
+    /* cneter */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-opsi:hover{
+    background-color: #ddd;
+    cursor: pointer;
+}
+.btn-opsi:active{
+    background-color: #ccc;
+}
+
+.btn-hapus{
+    padding: 5px 10px;
+    margin-right: 10px;
+    background-color: #ff0000;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+.btn-hapus:hover{
+    background-color: #ee0606;
+    cursor: pointer;
+}
+.btn-hapus:active{
+    background-color: #cf0b0b;
+}
+
+.btn-kurangi-satu{
+    padding: 5px 10px;
+    margin-right: 10px;
+    background-color: #f7d307;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+.btn-kurangi-satu:hover{
+    background-color: #ebc90b;
+    cursor: pointer;
+}
+.btn-kurangi-satu:active{
+    background-color: #dbba00;
+}
+/* akhir kertas struk */
+
+#teks-total{
+    /* border: 1px solid black; */
+    margin-top: 20px;
+}
+
+.area-pembayaran{
+    /* border: 1px solid black; */
+    margin-top: 15px;
+}
+
+.wadah-kembalian{
+    /* border: 1px solid black; */
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+#input-uang{
+    width: 200px;
+    font-size: 15px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#btn-kembalian{
+    border: none;
+    border-radius: 5px;
+    width: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #32bd25;
+    color: #fff;
+    font-weight: bold;
+}
+#btn-kembalian:hover{
+    background-color: #32ac27;
+    cursor: pointer;
+}
+#btn-kembalian:active{
+    background-color: #2a9221;
+}
+
+#teks-kembalian{
+    /* border: 1px solid black; */
+    margin-top: 20px;
+}
+
+#reset{
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 120px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #0099ff;
+    color: #fff;
+    font-weight: bold;
+}
+#reset:hover{
+    background-color: #0092d1;
+    cursor: pointer;
+}
+#reset:active{
+    background-color: #0068ad;
+}
+
+/* === Tampilan Untuk HP === */
 @media (max-width: 768px) {
-    .layout-utama {
-        flex-direction: column;
+    .wadah-nama-toko{
+        padding-top: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-    .tombol-pesan {
-        width: 150px;
+
+    /* === lyout utama jadi vertikal ===*/
+    .layout-utama{
+        /* border: 1px solid black; */
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+    }
+    
+    /* == layout kiri == */
+    .layout-kiri{
+        flex: none;
+        /* border: 1px solid orange; */
+        padding: 5px;
+        height: auto;
+    }
+
+    .head-menu{
+        /* border: 1px solid black; */
+        margin-bottom: 0;
+    }
+
+    .wadah-nama-harga-tambah-menu{
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 5px;
+    }
+
+    #wadah-daftar-menu{
+        /* border: 1px solid red; */
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 160px;
+    }
+
+    .tombol-pesan{
+        padding: 18px;
+    }
+
+    /* == layout kanan == */
+    .layout-kanan{
+        flex: 1;
+        min-height: 0;
     }
 }

@@ -7,48 +7,53 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="wadah-nama-toko">
-        <h2 class="nama-toko">Warung Kopi Kita</h2>
-        <button class="btn-opsi-nama-toko">&#8942;</button>
-        <div class="wadah-ganti-nama">
-            <input type="text" id="input-nama-toko-baru" placeholder="Nama toko">
-            <button id="btn-ganti-nama">Ganti Nama</button>
-        </div>
-    </div>
-    <div class="layout-utama">
-        <div class="layout-kiri">
-            <div class="head-menu">
-                <div class="wadah-judul-tambah-menu">
-                    <h3 class="judul-daftar-menu">Daftar Menu</h3>
-                    <button id="btn-tambah-menu" class="tambah-menu">+</button>
-                </div>
-                <div class="wadah-nama-harga-tambah-menu">
-                    <input type="text" id="input-nama-menu-baru" placeholder="Nama menu baru">
-                    <input type="text" id="input-harga-menu-baru" placeholder="Harga menu baru">
-                    <dev class="wadah-btn-tambah-menu">
-                        <button id="btn-tambah-menu-baru">Tambah</button>
-                        <button id="btn-selesai-tambah-menu-baru">Selesai</button>
-                    </dev>
-                </div>
+    <div class="container">
+        <div class="wadah-nama-toko">
+            <h2 class="nama-toko">Nama Toko</h2>
+            <button class="btn-opsi-nama-toko">&#8942;</button>
+            <div class="wadah-ganti-nama">
+                <input type="text" id="input-nama-toko-baru" placeholder="Nama toko">
+                <button id="btn-ganti-nama">Ganti Nama</button>
             </div>
-
-            <!-- menampilkan daftar menu -->
-            <div id="wadah-daftar-menu"></div> 
-
         </div>
 
-        <div class="layout-kanan">
-            <h3>Kertas Struk</h3>
-            <div id="kertas-struk"></div>
-            <h3 id="teks-total">Total belanja = Rp 0</h3>
-
-            <h3 class="area-pembayaran">Area Pembayaran</h3>
-            <input type="text" id="input-uang" placeholder="Masukan jumlah uang" inputmode="numeric">
-            <button id="btn-kembalian">Kembalian</button>
-
-            <h3 id="teks-kembalian">Kembalian = Rp 0</h3>
-
-            <button id="reset">Pelanggan baru</button>
+        <div class="layout-utama">
+            <div class="layout-kiri">
+                <div class="head-menu">
+                    <div class="wadah-judul-tambah-menu">
+                        <h3 class="judul-daftar-menu">Daftar Menu</h3>
+                        <button id="btn-tambah-menu" class="tambah-menu">+</button>
+                    </div>
+                    <div class="wadah-nama-harga-tambah-menu">
+                        <input type="text" id="input-nama-menu-baru" placeholder="Nama menu baru">
+                        <input type="text" id="input-harga-menu-baru" placeholder="Harga menu baru">
+                        <dev class="wadah-btn-tambah-menu">
+                            <button id="btn-tambah-menu-baru">Tambah</button>
+                            <button id="btn-selesai-tambah-menu-baru">Selesai</button>
+                        </dev>
+                    </div>
+                </div>
+    
+                <!-- menampilkan daftar menu -->
+                <div id="wadah-daftar-menu"></div> 
+    
+            </div>
+    
+            <div class="layout-kanan">
+                <h3>Kertas Struk</h3>
+                <div id="kertas-struk"></div>
+                <h3 id="teks-total">Total belanja = Rp 0</h3>
+    
+                <h3 class="area-pembayaran">Area Pembayaran</h3>
+                <div class="wadah-kembalian">
+                    <input type="text" id="input-uang" placeholder="Masukan jumlah uang" inputmode="numeric">
+                    <button id="btn-kembalian">Kembalian</button>
+                </div>
+    
+                <h3 id="teks-kembalian">Kembalian = Rp 0</h3>
+    
+                <button id="reset">Pelanggan baru</button>
+            </div>
         </div>
     </div>
     
