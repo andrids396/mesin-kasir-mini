@@ -134,9 +134,15 @@ body, h2, h3, button, input {
 
 /* form tambah menu */
 .wadah-nama-harga-tambah-menu{
-    display: none;
+    display: flex;
+    /* border: 1px solid black; */
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
+.wadah-input-nama-harga{
+    /* border: 1px solid red; */
+}
 #input-nama-menu-baru{
     border: 1px solid #ccc;
     height: 30px;
@@ -153,6 +159,12 @@ body, h2, h3, button, input {
     margin-right: 10px;
     border-radius: 5px;
     font-size: 15px;
+}
+
+.wadah-btn-tambah-menu{
+    /* border: 1px solid orange; */
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 #btn-tambah-menu-baru{
@@ -481,10 +493,11 @@ body, h2, h3, button, input {
     }
     #input-nama-menu-baru{
         margin-right: 0;
-
+        min-width: 45%;
     }
     #input-harga-menu-baru{
         margin-right: 0;
+        min-width: 45%;
     }
 
     #wadah-daftar-menu{
