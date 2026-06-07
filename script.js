@@ -77,6 +77,11 @@ function renderDaftarMenu() {
                     
             // matematika, menambah total belanja
             total += elemen.harga;
+
+            // scrol struk otomatis ke bawah
+            setTimeout(function(){
+                kertasStruk.scrollTop = kertasStruk.scrollHeight;
+            }, 10)
     
             // update layar
             randerLayar();
@@ -245,9 +250,6 @@ function randerLayar(){
         }else{
             wadahTombolHapusKurangi.style.display = "none"
         }
-        
-
-
 
         // membuat tombol hapus
         const hapus = document.createElement("button");
