@@ -134,7 +134,7 @@ body, h2, h3, button, input {
 
 /* form tambah menu */
 .wadah-nama-harga-tambah-menu{
-    display: flex;
+    display: none;
     /* border: 1px solid black; */
     flex-wrap: wrap;
     gap: 10px;
@@ -142,6 +142,7 @@ body, h2, h3, button, input {
 
 .wadah-input-nama-harga{
     /* border: 1px solid red; */
+
 }
 #input-nama-menu-baru{
     border: 1px solid #ccc;
