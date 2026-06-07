@@ -472,12 +472,12 @@ body, h2, h3, button, input {
     }
 
     #wadah-daftar-menu{
-        /* border: 1px solid red; */
+        border: 1px solid red;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         gap: 5px;
-        height: 210px;
+        height: 230px;
     }
 
     .tombol-pesan{
