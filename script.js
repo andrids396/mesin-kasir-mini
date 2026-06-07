@@ -24,8 +24,14 @@ let keranjang = []; // menyimpan menu pesanan
 let total = 0; // inisiasi awal total belanja
 let admin = false;
 
+// mengambil daftar menu dari file yang disimpan
 let dataDaftarMenu = localStorage.getItem("fileDaftarMenu");
 let daftarMenu = dataDaftarMenu ? JSON.parse(dataDaftarMenu): [];
+
+// mengambil nama toko dari file yang disimpan
+let dataNamaToko = localStorage.getItem("fileNamaToko");
+let teksNamaToko = dataNamaToko ? JSON.parse(dataNamaToko): {nama: "Nama Toko"};
+namaToko.innerHTML = teksNamaToko.nama;
 
 // 2. Membuat Tombol Pesan Menu dan Listenernya
 function renderDaftarMenu() {
@@ -212,7 +218,17 @@ tombolGantiNama.addEventListener("click", () => {
     if (inputNamaTokoBaru.value === ""){
         return;
     }
-    namaToko.innerHTML = inputNamaTokoBaru.value;
+    
+    // simpan nama toko ke localstorage
+    let fileStringNamaToko = JSON.stringify({nama: inputNamaTokoBaru.value});
+    localStorage.setItem("fileNamaToko", fileStringNamaToko);
+
+    // ganti nama toko
+    let stringNamaToko = localStorage.getItem("fileNamaToko");
+    let dataJadiNamaToko = JSON.parse(stringNamaToko);
+    namaToko.innerHTML = dataJadiNamaToko.nama;
+
+    // menghilangkan form ganti nama toko
     wadahGantiNama.style.display = "none";
     inputNamaTokoBaru.value = "";
 })
