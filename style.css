@@ -93,7 +93,6 @@ body, h2, h3, button, input {
     /* border: 1px solid black; */
     padding: 20px;
     border-radius: 10px;
-    height: 0px;
     flex: 2;
     background-color: #fff;
     align-content: stretc;
@@ -477,7 +476,8 @@ body, h2, h3, button, input {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        height: 160px;
+        gap: 5px;
+        height: 210px;
     }
 
     .tombol-pesan{
@@ -488,5 +488,30 @@ body, h2, h3, button, input {
     .layout-kanan{
         flex: 1;
         min-height: 0;
+        padding: 5px;
+    }
+
+    #kertas-struk{
+        margin-top: 5px;
+    }
+
+    #teks-total{
+        margin-top: 5px;
+    }
+
+    .area-pembayaran{
+        display: none;
+    }
+
+    .wadah-kembalian{
+        margin-top: 5px;
+    }
+
+    #teks-kembalian{
+        margin-top: 5px;
+    }
+
+    #reset{
+        margin-top: 5px;
     }
 }
