@@ -243,7 +243,7 @@ function randerLayar(){
         const pesanan = document.createElement("div");
         pesanan.classList.add("pesanan");
         pesanan.innerHTML = `
-        ${elemen.nama} ${elemen.banyak} x Rp ${elemen.harga.toLocaleString("id-ID")} = Rp ${(elemen.banyak * elemen.harga).toLocaleString("id-ID")}`
+        <div class="identitas-pesanan">${elemen.nama} ${elemen.banyak} x Rp ${elemen.harga.toLocaleString("id-ID")}</div> <div class="jumlah-harga">= Rp ${(elemen.banyak * elemen.harga).toLocaleString("id-ID")}</div>`
 
         // tombol titik tiga opsi
         const opsi = document.createElement("button");

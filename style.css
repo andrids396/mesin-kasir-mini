@@ -318,15 +318,22 @@ body, h2, h3, button, input {
 }
 
 .pesanan{
+    /* border: 1px solid black; */
     border-bottom: 1px dashed #ccc;
     padding: 10px 0;
     
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.identitas-pesanan{
+    /* border: 1px solid red; */
 }
 
 .btn-opsi{
+    /* border: 1px solid black; */
     width: 20px;
     height: 20px;
     border: none;
@@ -344,6 +351,10 @@ body, h2, h3, button, input {
 }
 .btn-opsi:active{
     background-color: #ccc;
+}
+
+.wadah-tombol-hapus-kurangi{
+    /* border: 1px solid orange; */
 }
 
 .btn-hapus{
@@ -508,6 +519,16 @@ body, h2, h3, button, input {
         flex-wrap: wrap;
         gap: 5px;
         max-height: 230px;
+    }
+
+    .opsi-hapus-menu{
+        top: -1px;
+        right: -1px;
+    }
+
+    .btn-hapus-menu{
+        top: -1px;
+        right: -1px;
     }
 
     .tombol-pesan{
